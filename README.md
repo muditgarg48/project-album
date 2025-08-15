@@ -25,8 +25,6 @@ My attempt at a fully **offline**, **cross-platform** desktop application that s
   - Location clustering on a map
   - Calendar heatmap for time-based grouping
 
----
-
 ## Core Responsibilities
 
 ### Backend
@@ -52,13 +50,9 @@ My attempt at a fully **offline**, **cross-platform** desktop application that s
 - Map & calendar heatmap views  
 - Cluster labeling UI
 
----
-
 ## End goal 
 
 Ship as a single executable (`.exe`, `.dmg`, `.AppImage`) for one-time installation.
-
----
 
 ## Data Flow
 1. **User selects folder(s)** => app scans them for images
@@ -67,15 +61,11 @@ Ship as a single executable (`.exe`, `.dmg`, `.AppImage`) for one-time installat
 4. **Frontend displays organized results** via API
 5. Package both frontend and backend into a single offline desktop app using something like **Electron**
 
----
-
 ## Project Goals
 - 100% offline privacy-focused photo organization
 - Cross-platform support (Windows, Mac, Linux)
 - AI-powered local image classification
 - Single-click install & simple setup
-
----
 
 ## Future Features
 - Support more formats
@@ -87,7 +77,5 @@ Ship as a single executable (`.exe`, `.dmg`, `.AppImage`) for one-time installat
 - Mass rename/delete/export clusters
 - Model/data encryption
 - Login to save/import custom-trained models
-
----
 
 **NOTE**: I authored this README.md with the help of Generative AI. I did not generate this but wrote this with the assistance of ChatGPT to consolidate my thoughts and ideas about the project.
