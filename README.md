@@ -11,19 +11,19 @@ My attempt at a fully **offline**, **cross-platform** desktop application that s
 ### Core Features (MVP)
 
 - **Sort By:**
-  - People
-  - Places
-  - Time
-  - Important Docs
-  - Receipts
-  - Memes & Screenshots detection
+  - [ ] People
+  - [ ] Places
+  - [ ] Time
+  - [ ] Important Docs
+  - [ ] Receipts
+  - [ ] Memes & Screenshots detection
 
 - **Search:**
-  - Natural queries like `"Mudit in Dublin on Christmas"`
+  - [ ] Natural queries like `"Mudit"` or `"Dublin"` or `"Christmas"`
   
 - **Heatmap Views:**
-  - Location clustering on a map
-  - Calendar heatmap for time-based grouping
+  - [ ] Location clustering on a map
+  - [ ] Calendar heatmap for time-based grouping
 
 ## Core Responsibilities
 
@@ -68,14 +68,15 @@ Ship as a single executable (`.exe`, `.dmg`, `.AppImage`) for one-time installat
 - Single-click install & simple setup
 
 ## Future Features
-- Support more formats
-- Advanced search queries (“person + place + time”)
-- Video support (keyframe face detection)
-- Duplicate detection & cleanup
-- Pet detection (treated as “people”)
-- Blur detection & cleanup
-- Mass rename/delete/export clusters
-- Model/data encryption
-- Login to save/import custom-trained models
+- [ ] Support more formats
+- [ ] Advanced search queries (“person + place + time”)
+- [ ] Video support (keyframe face detection)
+- [ ] Duplicate detection & cleanup
+- [ ] Pet detection (treated as “people”)
+- [ ] Blur detection & cleanup
+- [ ] Mass rename/delete/export clusters
+- [ ] Model/data encryption
+- [ ] Login to save/import custom-trained models
+- [ ] Summary of each important document without opening those documents
 
 **NOTE**: I authored this README.md with the help of Generative AI. I did not generate this but wrote this with the assistance of ChatGPT to consolidate my thoughts and ideas about the project.
