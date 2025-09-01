@@ -1,0 +1,1 @@
+IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".gif", ".tiff", ".bmp", ".heic", ".webp", ".raw", ".cr2", ".nef", ".arw"}
