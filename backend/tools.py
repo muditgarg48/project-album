@@ -1,4 +1,15 @@
 from PIL.ExifTags import GPSTAGS
+from mtcnn import MTCNN
+
+# Initialize the MTCNN face detector
+try:
+    face_detector = MTCNN()
+    print("==================================")
+    print("Face detector loaded successfully.")
+except Exception as e:
+    print("==================================")
+    print(f"Error loading face detector: {e}")
+    exit()
 
 def convert_to_degrees(value):
     """Convert GPS coordinates stored as rationals to float degrees."""

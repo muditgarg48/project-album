@@ -2,6 +2,19 @@
 
 This directory contains the backend codebase and database handling for Project A.L.B.U.M. The backend is based on Flask and utilises SQLite for its database purpose.
 
+### Libraries Used:
+
+#### MTCNN: Face detection
+
+**Resources used for researching:**
+
+- CampusX; Introduction to Face Detection using MTCNN: 
+    https://www.youtube.com/watch?v=ZjbWF9f3VD4
+
+#### OpenCV: Image processing
+
+#### PIL: Metadata extraction
+
 ### Setup
 
 After the repository is cloned,

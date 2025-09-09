@@ -25,9 +25,9 @@ def scan_directory(folder_path, task):
                     if entry.is_dir(follow_symlinks=False):
                         folder_stack.append(entry.path)
                     elif entry.is_file(follow_symlinks=False) and allow_extension(entry.name):
+                        print(f"Found {entry.name} at {current_folder}")
                         exif = task(entry.path)
                         files += 1
-                        print(f"Found {entry.name} at {current_folder}")
                         print(f"Metadata: {exif if exif else 'No metadata'}")
                         print("-" * 40)
         except PermissionError:
