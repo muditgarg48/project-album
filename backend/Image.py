@@ -33,12 +33,14 @@
 import os
 from Face import Face
 import cv2
-
-from constants import IMAGE_EXTENSIONS
-
 from PIL import Image as PILImage
 from PIL.ExifTags import TAGS
+
+from constants import IMAGE_EXTENSIONS
 from tools import extract_gps_info, face_detector
+from logger_functions import get_logger
+
+logger = get_logger(__name__)
 
 class Image():
 
@@ -55,6 +57,7 @@ class Image():
         # CHECKPOINT: Image object creation
         self.file_extension = file_extension
         self.file_path = file_path
+        self.img = cv2.imread(self.file_path)
         self.file_name = os.path.basename(self.file_path)
         self.file_size = os.stat(self.file_path).st_size
         self.date_timestamp = None
@@ -109,19 +112,18 @@ class Image():
     
     def show_img(self):
         cv2.namedWindow(self.file_name, cv2.WINDOW_NORMAL)
-        img = cv2.imread(self.file_path)
-        cv2.imshow(self.file_name, img)
+        cv2.imshow(self.file_name, self.img)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
     def show_faces(self):
         window_name = f"{self.file_name} with {len(self.faces)} detected faces"
         cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
-        img = cv2.imread(self.file_path)
         for face in self.faces:
-            face.show_face(img)
-            face.show_keypoints(img)
-        cv2.imshow(window_name, img)
+            face.show_face(self.img)
+            # face.show_keypoints(img)
+            face.show_confidence(self.img)
+        cv2.imshow(window_name, self.img)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
@@ -220,8 +222,7 @@ class Image():
 
     # Helper methods
     def detect_faces(self):
-        img = cv2.imread(self.file_path)
-        results = face_detector.detect_faces(img)
+        results = face_detector.detect_faces(self.img)
         for result in results:
             top_left_x, top_left_y, width, height = result['box']
             bottom_right_x = top_left_x + width
@@ -239,7 +240,11 @@ class Image():
                 keypoints=result.get('keypoints')
             )
             self.add_face(detected_face)
-        print(f"Detected {len(self.faces)} faces within {self.file_name}")
+        logger.debug(f"Detected {len(self.faces)} faces within {self.file_name}")
+
+    def release(self):
+        self.img = None
+        cv2.destroyAllWindows()
 
     # Database functions
     # TO_DO: Implement database addition

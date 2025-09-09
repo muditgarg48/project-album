@@ -69,3 +69,8 @@ class Face():
             self.show_eyes(img)
             self.show_mouth(img)
             self.show_nose(img)
+    
+    def show_confidence(self, img):
+        confidence = round(self.confidence*100, 2)
+        location = (self.bounding_box["top_left"][0]+self.bounding_box["width"]//2, self.bounding_box["top_left"][1]+self.bounding_box["height"])
+        cv2.putText(img, text=f"{confidence}", org=location, fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.5, color=(0, 255, 0), thickness=1, lineType=cv2.LINE_AA)

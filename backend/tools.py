@@ -1,14 +1,18 @@
 from PIL.ExifTags import GPSTAGS
 from mtcnn import MTCNN
 
+from logger_functions import get_logger
+
+logger = get_logger(__name__)
+
 # Initialize the MTCNN face detector
 try:
     face_detector = MTCNN()
-    print("==================================")
-    print("Face detector loaded successfully.")
+    logger.debug("==================================")
+    logger.debug("Face detector loaded successfully.")
 except Exception as e:
-    print("==================================")
-    print(f"Error loading face detector: {e}")
+    logger.error("==================================")
+    logger.error(f"Error loading face detector: {e}")
     exit()
 
 def convert_to_degrees(value):

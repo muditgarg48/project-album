@@ -1,6 +1,10 @@
 import os
 from constants import IMAGE_EXTENSIONS
 
+from logger_functions import get_logger
+
+logger = get_logger(__name__)
+
 def allow_extension(file_name):
     """ To check if the file is an image based on its extension. """
     return os.path.splitext(file_name)[1].lower() in IMAGE_EXTENSIONS
@@ -17,21 +21,21 @@ def scan_directory(folder_path, task):
     while folder_stack:
         current_folder = folder_stack.pop()
         folders += 1
-        print(f"Scanning directory: {current_folder}")
-        print("-" * 80)
+        logger.debug(f"Scanning directory: {current_folder}")
+        logger.debug("-" * 80)
         try:
             with os.scandir(current_folder) as it:
                 for entry in it:
                     if entry.is_dir(follow_symlinks=False):
                         folder_stack.append(entry.path)
                     elif entry.is_file(follow_symlinks=False) and allow_extension(entry.name):
-                        print(f"Found {entry.name} at {current_folder}")
+                        logger.debug(f"Found {entry.name} at {current_folder}")
                         exif = task(entry.path)
                         files += 1
-                        print(f"Metadata: {exif if exif else 'No metadata'}")
-                        print("-" * 40)
+                        logger.debug(f"Metadata: {exif if exif else 'No metadata'}")
+                        logger.debug("-" * 40)
         except PermissionError:
-            print(f"Permission denied: {current_folder}")
+            logger.error(f"Permission denied: {current_folder}")
             continue
-    print("-" * 80)
-    print(f"{folders} folders scanned and {files} files found.")
+    logger.debug("-" * 80)
+    logger.debug(f"{folders} folders scanned and {files} files found.")
