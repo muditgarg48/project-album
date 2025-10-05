@@ -1,0 +1,13 @@
+.progress-bar {
+    width: 100%;
+    background: #ddd;
+    border-radius: var(--button-radius);
+    overflow: hidden;
+    height: 10px;
+}
+
+.progress {
+    background: var(--button-color);
+    height: 100%;
+    transition: width 0.3s ease;
+}

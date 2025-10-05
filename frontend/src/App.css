@@ -1,42 +1,36 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
+	/* Core Palette */
+	--color-bg: #F5FBEF;           /* Main background */
+	--color-surface: #92AD94;      /* Secondary surfaces / containers */
+	--color-inactive: #748B75;     /* Muted text, inactive tabs */
+	--color-text: #503D42;         /* Primary text, icons */
+	--color-accent: #84C318;       /* Active elements, highlights */
+
+	/* Typography */
+	--font-family: 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
+	--font-size-heading: 1.5rem;
+	--font-size-subheading: 1.2rem;
+	--font-size-tab: 1rem;
+
+	/* UI Elements */
+	--button-bg: var(--color-accent);
+	--button-text: #fff;
+	--button-radius: 9999px;       /* Pill shape */
+	--button-padding: 0.5rem 1rem;
+
+	/* States */
+	--color-border: var(--color-muted);
+	--color-secondary-text: var(--color-muted);
+
+	/* Fonts */
+	--heading-font: "Asimovian", sans-serif;
+	--heading-font-weight: 400;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+body {
+	margin: 0;
+	font-family: var(--font-family);
+	background-color: var(--background-color);
+	color: var(--text-color);
 }
