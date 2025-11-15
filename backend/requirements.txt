@@ -1,0 +1,6 @@
+opencv-python
+mtcnn
+pillow
+tensorflow
+flask
+flask-sqlalchemy
